@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsnrwpn2eerqn"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_arxy2"]
+[ext_resource type="Texture2D" uid="uid://dga1g78nm85lf" path="res://Scenes/projetilAlienigena3.png" id="2_eujop"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lkhme"]
+radius = 6.0
+height = 32.0
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_arxy2")
+
+[node name="SpriteBullet" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4, 1)
+scale = Vector2(2.51855, 2.00781)
+texture = ExtResource("2_eujop")
+flip_h = true
+
+[node name="CollisionBullet" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lkhme")

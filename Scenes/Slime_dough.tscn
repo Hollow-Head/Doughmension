@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqkdgpb5nhsbn"]
+
+[ext_resource type="Script" path="res://Scripts/slime_dough.gd" id="1_teeuw"]
+[ext_resource type="Texture2D" uid="uid://cjvfuhww5q0em" path="res://Sprites/massaDePao.png" id="1_xsc7h"]
+[ext_resource type="PackedScene" uid="uid://xgqsuhvn0wlh" path="res://Scenes/Hitbox.tscn" id="3_g4y73"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ljnxy"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vdamo"]
+radius = 8.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_teeuw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("1_xsc7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_ljnxy")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_g4y73")]
+DAMAGE = 1
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_vdamo")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+
+[editable path="Hitbox"]

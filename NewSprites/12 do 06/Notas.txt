@@ -1,0 +1,4 @@
+Atualização do SpriteSheet:
+-Ajustes em pixels faltando ou incorrespondentes.
+-Versoes parada e correndo sem o braço direito.
+--Versoes parada e correndo sem os dois braços.
